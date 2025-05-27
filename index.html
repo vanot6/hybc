@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouLiYa — Бизнес-консалтинг в Китае</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #1e1e1e;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header {
+      background: url('bgh.jpg') center center / cover repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px 80px;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 0;
+    }
+
+    header h1,
+    header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-family: 'Arial Black', sans-serif;
+      font-size: 54px;
+      margin-bottom: 10px;
+      letter-spacing: 4px;
+    }
+
+    header p {
+      font-size: 24px;
+      font-weight: 300;
+      color: #eee;
+      line-height: 1.6;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h2, h3 {
+font-family: 'Arial Narrow', sans-serif; 
+font-weight: 700; 
+text-transform: uppercase; 
+font-size: 26px; 
+margin-bottom: 40px; letter-spacing: 1px;
+    }
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .service-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      width: calc(33.333% - 20px);
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+    .service-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .service-card .content {
+      padding: 20px;
+    }
+    .service-card h3 {
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
+    .service-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+    .service-card li {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+    .contact-form, .contact-info {
+      flex: 1;
+      min-width: 280px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .contact-form button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #007b8f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: #005f6b;
+    }
+    .contact-info p {
+      margin: 10px 0;
+    }
+    .contact-info a {
+      color: #007b8f;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #ccc;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .services-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .service-card {
+        width: 100%;
+      }
+    }
+  </style>
+
+<style>
+.cta-section {
+  background-color: #a91d22; /* императорский красный */
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.6s ease;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.15) 0%, transparent 40%, rgba(255,255,255,0.15) 100%);
+  transform: rotate(0deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  animation: gradient-sweep 4s linear infinite;
+}
+
+.cta-section:hover::before {
+  opacity: 1;
+}
+
+@keyframes gradient-sweep {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  100% {
+    transform: rotate(360deg) translateX(0);
+  }
+}
+
+.cta-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #1e1e1e;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.cta-alt {
+  background-color: #a91d22;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-alt::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: rotate(0deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  animation: sweep-light 5s linear infinite;
+}
+
+.cta-alt:hover::before {
+  opacity: 1;
+}
+
+@keyframes sweep-light {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  100% {
+    transform: rotate(360deg) translateX(0);
+  }
+}
+
+.cta-alt h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cta-alt p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.cta-alt a {
+  background: #fff;
+  color: #a91d22;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta-alt a:hover {
+  background: #f2f2f2;
+  color: #000;
+}
+</style>
+
+</head>
+<body>
+  <div class="container">
+<header>
+  <h1>YouLiYa</h1>
+  <p>海南优莉亚商务咨询服务有限公司<br>Hainan Youliya Business Consulting Service Co.<br>Бизнес-лицензия № 91460106MAD5TME02A</p>
+</header>
+
+<section>
+  <h2>О компании</h2>
+  <p id="about-text">
+    <strong>Основана в декабре 2023 года</strong> под руководством востоковеда и китаиста Юлии Шевцовой — специалиста с 20-летним опытом в сфере китайско-российских отношений и международного бизнеса. Более 13 лет на руководящих позициях в китайских и российских компаниях. Мы сопровождаем бизнес в Китае на всех этапах — от рыночной разведки до регистрации компаний и организации логистики.
+  </p>
+  <div style="text-align: right;">
+    <a href="#" id="toggle-more" style="font-size: 14px; color: #007b8f; text-decoration: underline; cursor: pointer;">Подробнее</a>
+  </div>
+</section>
+
+<script>
+  const toggleLink = document.getElementById('toggle-more');
+  const aboutText = document.getElementById('about-text');
+  let expanded = false;
+
+  const shortText = `<strong>Основана в декабре 2023 года</strong> под руководством востоковеда и китаиста Юлии Шевцовой — специалиста с 20-летним опытом в сфере китайско-российских отношений и международного бизнеса. Более 13 лет на руководящих позициях в китайских и российских компаниях. Мы сопровождаем бизнес в Китае на всех этапах — от рыночной разведки до регистрации компаний и организации логистики.`;
+
+  const fullText = `<strong>Компания основана в декабре 2023 года</strong> под руководством востоковеда-китаиста Юлии Шевцовой — специалиста с 20-летним опытом в сфере китайско-российских отношений и международного бизнеса. Более 13 лет она занимала руководящие должности в китайских и российских компаниях. Среди её достижений — успешное выведение на китайский рынок предприятий машиностроительной, оборонной и торговой отрасли. Компания YouLiYa обеспечивает клиентам полный цикл сопровождения бизнеса в Китае: от анализа рынка и стратегического планирования до организации логистики, бухгалтерского учёта, маркетинга и правовой поддержки.`;
+
+  toggleLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!expanded) {
+      aboutText.innerHTML = fullText;
+      toggleLink.textContent = 'Скрыть';
+    } else {
+      aboutText.innerHTML = shortText;
+      toggleLink.textContent = 'Подробнее';
+    }
+    expanded = !expanded;
+  });
+</script>
+
+<section>
+  <h2>Наши услуги</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="placeholder-business.jpg" alt="Бизнес-процессы" />
+      <div class="content">
+        <h3>Бизнес-процессы и регистрация</h3>
+        <ul>
+          <li>Организация бизнес-процессов в Китае</li>
+          <li>Регистрация компаний</li>
+          <li>Аренда офисов и складов</li>
+          <li>Подбор юридического адреса</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-research.jpg" alt="Аналитика" />
+      <div class="content">
+        <h3>Маркетинг и исследования</h3>
+        <ul>
+          <li>Рыночная аналитика</li>
+          <li>Маркетинговые исследования</li>
+          <li>Рекламные кампании в Китае</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-events.jpg" alt="Мероприятия" />
+      <div class="content">
+        <h3>Организация мероприятий</h3>
+        <ul>
+          <li>Деловые визиты и встречи</li>
+          <li>Участие в выставках</li>
+          <li>Проведение деловых мероприятий</li>
+          <li>Проведение спортивных мероприятий</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-logistics.jpg" alt="Логистика" />
+      <div class="content">
+        <h3>Логистика и персонал</h3>
+        <ul>
+          <li>Контроль закупок и отгрузки</li>
+          <li>Бухгалтерское сопровождение</li>
+          <li>Подбор персонала</li>
+          <li>Обучение сотрудников</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-medical.jpg" alt="Медицинский туризм" />
+      <div class="content">
+        <h3>Медицинский туризм</h3>
+        <ul>
+          <li>Лечение с использованием традиционной китайской медицины (ТКМ)</li>
+          <li>Современные методы западной медицины</li>
+          <li>Оздоровительные программы и реабилитация</li>
+          <li>Организация медицинских туров и сопровождение</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-education.jpg" alt="Образование в Китае" />
+      <div class="content">
+        <h3>Образование в Китае</h3>
+        <ul>
+          <li>Изучение китайского языка и культуры</li>
+          <li>Подготовка к экзаменам HSK</li>
+          <li>Поступление в вузы Китая</li>
+          <li>Сопровождение и поддержка студентов</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY US Section -->
+<section style="background-color:#ffffff; padding:60px 20px;">
+  <h2 style="text-align:center; margin-bottom:40px;">Почему выбирают YouLiYa</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center; max-width:1100px; margin:0 auto;">
+    <div style="flex:1; min-width:250px; max-width:300px; text-align:center;">
+      <img src="placeholder-icons1.jpg" alt="Надёжность" style="width:80px; margin-bottom:15px;">
+      <h3>Прямой доступ в КНР</h3>
+      <p>Работаем без посредников: проверка поставщиков, визиты, логистика.</p>
+    </div>
+    <div style="flex:1; min-width:250px; max-width:300px; text-align:center;">
+      <img src="placeholder-icons2.jpg" alt="Экспертиза" style="width:80px; margin-bottom:15px;">
+      <h3>20 лет опыта</h3>
+      <p>Глубокое понимание китайской специфики: язык, культура, госаппарат.</p>
+    </div>
+    <div style="flex:1; min-width:250px; max-width:300px; text-align:center;">
+      <img src="placeholder-icons3.jpg" alt="Индивидуальный подход" style="width:80px; margin-bottom:15px;">
+      <h3>Решения под ключ</h3>
+      <p>Каждое обращение — это отдельный проект с гарантией результата.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA Block -->
+<section class="cta-alt">
+  <h2>Работаете с Китаем?</h2>
+  <p>Оставьте заявку — и мы свяжемся с вами в течение 24 часов, чтобы предложить лучшее решение вашей задачи.</p>
+  <a href="#contact">Связаться с консультантом</a>
+</section>
+
+<section>
+  <h2 style="font-family: 'Arial Narrow', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 26px; margin-bottom: 40px; letter-spacing: 1px;">
+   Наше преимущество – экспертиза
+  </h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="placeholder-machinery.jpg" alt="Машиностроение и транспорт" />
+      <div class="content">
+        <h3>Машиностроение и транспорт</h3>
+        <ul>
+          <li>Инжиниринговое сопровождение локализации</li>
+          <li>Контрактация и аудит поставщиков</li>
+          <li>Экспортно-импортная документация</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-equipment.jpg" alt="Производственное оборудование" />
+      <div class="content">
+        <h3>Промышленное оборудование</h3>
+        <ul>
+          <li>Поставка технологических линий</li>
+          <li>Контроль технических спецификаций</li>
+          <li>Мониторинг производственного цикла</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-mining.jpg" alt="Горнодобывающая промышленность" />
+      <div class="content">
+        <h3>Горнодобывающая промышленность</h3>
+        <ul>
+          <li>Сопровождение сделок по добывающему оборудованию</li>
+          <li>Проектная документация и стандарты</li>
+          <li>Закупка спецтехники и сервисных компонентов</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-energy.jpg" alt="Энергетика и ВИЭ" />
+      <div class="content">
+        <h3>Энергетика и ВИЭ</h3>
+        <ul>
+          <li>Проектное взаимодействие по солнечным и литиевым системам</li>
+          <li>Энергетическое машиностроение</li>
+          <li>Участие в отраслях высокой технологичности</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-electronics.jpg" alt="Электроника и микросхемы" />
+      <div class="content">
+        <h3>Электроника и компоненты</h3>
+        <ul>
+          <li>Контрактное производство PCB и модулей</li>
+          <li>Интеграция с китайскими R&D кластерами</li>
+          <li>Сертификация и таможенное оформление</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-chemistry.jpg" alt="Химия и фармацевтика" />
+      <div class="content">
+        <h3>Химия и фармацевтика</h3>
+        <ul>
+          <li>Лабораторная и технологическая инфраструктура</li>
+          <li>Поставка химических реагентов и ингредиентов</li>
+          <li>Лицензирование и регистрационные процедуры</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Placeholder Team Section -->
+<section style="padding:60px 20px; background-color:#ffffff;">
+  <h2 style="text-align:center; margin-bottom:40px;">Наша команда</h2>
+  <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:30px; flex-wrap:wrap;">
+    <img src="placeholder-team.jpg" alt="Юлия Шевцова" style="width:220px; border-radius:12px;"/>
+    <div style="flex:1; min-width:250px;">
+      <h3>Юлия Шевцова</h3>
+      <p><strong>Генеральный директор</strong><br />Востоковед-культуролог, китаист, более 20 лет в сфере китайско-российского бизнеса. Вывела на рынок КНР проекты в сфере машиностроения, логистики и торговли.</p>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <h2>Начните сотрудничество с экспертами по Китаю</h2>
+    <p>
+      <strong>YouLiYa</strong> — это не просто консалтинг. Это ваш мост в мир деловых возможностей Китая.<br>
+      Доверьтесь нам, если вам нужен результат — без проб и ошибок.
+    </p>
+    <p>
+      📬 Напишите нам — и получите первичную консультацию уже сегодня.<br>
+      📞 Или свяжитесь через Telegram, WeChat или по форме ниже.
+    </p>
+    <a href="#contact" class="cta-button">Оставить заявку</a>
+  </div>
+</section>
+
+<!-- Blog/Articles Preview -->
+<section>
+  <h2>Полезные материалы</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="placeholder-article1.jpg" alt="Открытие бизнеса в Китае" />
+      <div class="content">
+        <h3>Как открыть бизнес в Китае</h3>
+        <p>Пошаговое руководство по регистрации компании и оформлению документов.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-article2.jpg" alt="Выставки 2025" />
+      <div class="content">
+        <h3>Выставки в Китае 2025</h3>
+        <p>Календарь ключевых отраслевых событий и советы по участию.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-article3.jpg" alt="Визы и приглашения" />
+      <div class="content">
+        <h3>Визовый режим и приглашения</h3>
+        <p>Типы деловых виз, приглашения от китайских партнёров и правила въезда.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-article4.jpg" alt="Переговоры с Китаем" />
+      <div class="content">
+        <h3>Особенности ведения переговоров</h3>
+        <p>Что важно знать о деловом этикете в Китае, чтобы не упустить шанс.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-article5.jpg" alt="Налоги в Китае" />
+      <div class="content">
+        <h3>Налогообложение компаний в Китае</h3>
+        <p>Актуальная информация о ставках, отчетности и тонкостях бухгалтерии.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-article6.jpg" alt="Традиционная медицина" />
+      <div class="content">
+        <h3>Гид по традиционной китайской медицине</h3>
+        <p>Как понять, подходит ли вам ТКМ и какие направления наиболее популярны.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-article7.jpg" alt="Китайский язык" />
+      <div class="content">
+        <h3>Китайский язык для бизнеса</h3>
+        <p>Фразы, без которых не обойтись на переговорах и в переписке с китайскими партнёрами.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="placeholder-article8.jpg" alt="e-commerce в Китае" />
+      <div class="content">
+        <h3>Тренды китайского e-commerce</h3>
+        <p>Где рекламироваться, как продавать, и что сейчас покупают в Китае.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section>
+  <h2>Связаться с нами</h2>
+  <div class="contact-wrapper">
+    <div class="contact-form">
+      <form action="#" method="POST">
+        <input type="text" placeholder="Ваше имя" required />
+        <input type="email" placeholder="Email или WeChat ID" required />
+        <textarea placeholder="Ваш запрос" rows="5" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <p><strong>Контакты:</strong></p>
+      <p>📱 Telegram: <a href="https://t.me/yourusername" target="_blank">@yourusername</a></p>
+      <p>🌐 ВКонтакте: <a href="https://vk.com/yourpage" target="_blank">vk.com/yourpage</a></p>
+      <p>📘 Facebook: <a href="https://facebook.com/yourpage" target="_blank">facebook.com/yourpage</a></p>
+      <p>🟩 WeChat ID: <strong>[your-wechat-id]</strong></p>
+      <p><img src="wechat-placeholder.jpg" alt="WeChat QR" style="width: 100%; max-width: 200px; border-radius: 8px;" /></p>
+    </div>
+  </div>
+</section>
+
+  <footer>
+      &copy; 2023–2025 YouLiYa — Hainan Youliya Business Consulting Service Co.<br />
+      Все права защищены.
+    </footer>
+  </div>
+  <script>
+    // Параллакс эффект при прокрутке
+    document.addEventListener('scroll', function () {
+      const scrolled = window.pageYOffset;
+      document.body.style.backgroundPositionY = -(scrolled * 0.05) + 'px';
+    });
+  </script>
+</body>
+</html>
+
+
